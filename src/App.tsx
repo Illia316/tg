@@ -15,6 +15,19 @@ export default function App() {
 
   const handleJoinClick = (e: React.MouseEvent) => {
     setJoining(true);
+
+    // Trigger Meta Pixel conversion event if available
+    try {
+      if (typeof window !== 'undefined' && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
+        (window as unknown as { fbq: (...args: unknown[]) => void }).fbq('track', 'Lead', {
+          content_name: 'Илья торгует',
+          channel_url: inviteLink
+        });
+      }
+    } catch {
+      // Ignore
+    }
+
     try {
       window.location.href = tgProtoLink;
     } catch {

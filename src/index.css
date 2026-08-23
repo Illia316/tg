@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --tg-blue: #2481cc;
+  --tg-blue-hover: #1e71b5;
+  --tg-accent: #3390ec;
+  --tg-bg: #e7ebf0;
+  --tg-text: #222222;
+  --tg-gray: #707579;
+  --f-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--f-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@keyframes tg-shine {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  20%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.tg-shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.tg-shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: tg-shine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+

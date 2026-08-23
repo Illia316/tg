@@ -1,0 +1,6 @@
+{
+  "name": "Telegram: Join Group Chat",
+  "description": "Telegram channel invite page for Илья торгует with dark theme pattern",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
